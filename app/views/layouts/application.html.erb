@@ -1,14 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html ja="ja">
 <head>
-  <title>Workspace</title>
+  <meta charset="utf-8" />
+  <title>Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class='<%= controller.controller_name %>'>
+<!--
+  ルート画面(app/views/welcome/index.html.erb)のような
+  WelcomeControllerでレンダリングされた画面
+-->
+<body class='welcome'>
 
-<%= yield %>
+<!--
+  投稿一覧画面(app/views/posts/index.html.erb)のような
+  PostsControllerでレンダリングされた画面
+-->
+<body class='posts'>
+<div id="wrap">
 
+  <header id="header">
+    <div class="inner">
+      <h1 id="logo"><%= link_to "QILIGEER Blog", root_path %></h1>
+      <p id="catchcopy">Description or something ....</p>
+    </div><!-- /.inner -->
+  </header><!-- /#header -->
+
+  <div id="main">
+    <%= yield %>
+  </div><!-- /#main -->
+  
+</div><!-- /#wrap -->
 </body>
 </html>
